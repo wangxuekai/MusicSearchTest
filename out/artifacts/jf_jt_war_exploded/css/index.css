@@ -1,0 +1,494 @@
+@charset "utf-8";
+/*-------------------------------一些通用配色*/
+.black_butt{
+	border:#FFF 1px;
+	background:#000;
+	color:#FFF;
+	cursor:pointer;
+	
+	border-radius:5px;
+	-moz-border-radius:25px; /* 老的 Firefox */
+	}
+
+/*---------------------------------音乐播放器*/
+#music_table{
+	margin:40px auto;
+	font-size:12px;
+	background:#6A6A6A;
+
+    box-shadow:0px 0px 5px #000;
+	border-radius:5px;
+	}
+#rand_play_box{/*----------------------------------------随便听听*/
+	/*width:90px;*/
+	height:20px;
+	float:right;
+	font-size:12px;
+	margin-right:5px;
+	
+	}
+#next_music{/*----------------------------------下一首的图标*/
+	width:16px;
+	cursor:pointer;
+	margin-left:5px;
+	
+	}
+#next_music:hover{/*----------------------------------下一首的图标移入鼠标*/
+	animation:myfirst 1s;
+	animation-iteration-count:infinite;
+	
+	-moz-animation:myfirst 1s; /* Firefox */
+	-moz-animation-iteration-count:infinite;
+	
+	-webkit-animation:myfirst 1s; /* Safari and Chrome */
+	-webkit-animation-iteration-count:infinite;
+	
+	-o-animation:myfirst 1s; /* Opera */
+	-o-animation-iteration-count:infinite;
+	}
+
+#rand_play_box input,#rand_play_box label,.music_info,#next_music{
+	vertical-align:middle;
+	}
+
+.music_info_td{
+	
+	width:700px;
+	background:#EEE;
+	padding:3px;
+	}
+.music_info{/*-------------------------------------歌曲信息*/
+	vertical-align:middle;
+	height:20px;
+	margin-left:10px;
+	width:540px;
+	float:left;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	}
+#canvas{
+	  height:5px;
+	  background:#FFF;
+	}
+#canvas_buff,#canvas_playing{
+	background:#F93;
+	z-index:1000;
+	position:absolute;
+	height:5px;
+	}
+#canvas_buff{
+	background:#CF0;
+	z-index:500;
+	}
+#canvas_playing{
+	z-index:1000;
+	background:#F93;
+	}
+#play{
+	
+	word-break:keep-all;/* 不换行 */
+	white-space:nowrap;/* 不换行 */
+	width:45px;
+	
+	text-align:center;
+	background:#6A6A6A;
+	border:none;
+	}
+	
+.hotlist_box{/*---------------------------推荐列表box*/
+	position:absolute;
+	width:750px;
+	z-index:1000;
+	display:none;
+	
+	box-shadow:0px 0px 5px #000;
+	
+	
+	}
+.hide_hotlist_box{/*-----------推荐列表的隐藏按钮*/
+float:right;
+height:20px;
+border-radius:5px;
+	}
+.hotlist_box p span{
+	display:none;
+	}
+.hotlist_box p{
+	cursor:pointer;
+	margin:0;
+	padding:5px;
+	padding-left:15px;
+	background:#F7F7F7;
+	}
+.hotlist_box_music:hover{
+	color:#F60;
+	}
+.recommend_tips{
+	height:20px;
+	 padding:5px;
+	 display:block;
+	 background:#fff;
+	 color:#F00;
+	}
+.recommend_show_butt{/*-------------------------显示推荐列表的按钮*/
+width:10px;
+background:#000;
+cursor:pointer;
+
+
+animation:recommend_flash 2s;
+animation-iteration-count:infinite;
+
+-moz-animation:recommend_flash 2s; /* Firefox */
+-moz-animation-iteration-count:infinite;
+
+-webkit-animation:recommend_flash 2s; /* Safari and Chrome */
+-webkit-animation-iteration-count:infinite;
+
+-o-animation:recommend_flash 2s; /* Opera */
+-o-animation-iteration-count:infinite;
+	}	
+	
+
+
+
+
+/*------------------------------------------------head---*/
+.head_img_box{
+	float:left;
+	width:200px;
+	height:200px;
+	padding:0;
+	margin:0;
+
+	}
+
+#logo{
+	width:190px;
+	height:190px;
+	margin-top:5px;
+	margin-left:5px;
+	
+	animation:animated_logo 5s 1;
+	-moz-animation:animated_logo 5s 1;
+	-webkit-animation:animated_logo 5s 1;
+	-o-animation:animated_logo 5s 1;
+	
+	position:absolute;
+	z-index:3000;
+	
+	box-shadow:3px 3px 10px #000;
+	border-radius:8px;
+	
+	
+	
+
+/*	-moz-transition: -moz-transform 1s; /* Firefox 4 */
+/*	-webkit-transition: -webkit-transform 1s; /* Safari and Chrome */
+/*	-o-transition: -o-transform 1s; /* Opera */
+	}
+/*#logo:hover
+{
+	
+	-moz-transform:rotate(360deg);
+	-webkit-transform:rotate(360deg); 
+	-o-transform:rotate(360deg); 
+}*/
+.head_info_box{
+
+	
+	font-size:small;
+	float:right;
+	width:800px;
+	height:200px;
+	margin:0;
+	padding:0;
+	
+	overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+	text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用*/
+	}
+.head_info_box_text{
+	color:#FFF;
+	text-align:left;
+	padding:40px;
+	padding-bottom:20px;
+	}
+.head_info{
+	display:none;
+	width:100%;
+	height:100%;
+	}
+.lrc_box_frame{
+	margin-top:20px;
+	height:160px;
+	overflow:hidden;
+	}
+.lrc_box{
+	position:relative;
+
+	margin-top:60px;
+
+	text-align:center;
+	
+
+	font-size:15px;
+	line-height:20px;
+	
+	word-break:keep-all;/* 不换行 */
+	white-space:nowrap;/* 不换行 */
+	overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+	text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用*/
+	}
+.lrc_box p{
+	font-family:"楷体";
+	position:relative;
+	color:#999;
+	height:20px;
+	margin:0;
+	text-shadow:2px 2px 2px #000; 
+	word-break:keep-all;/* 不换行 */
+	white-space:nowrap;/* 不换行 */
+	overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+	text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用*/
+	
+	}
+
+/*--------------------------------------------------*/
+.search_table{/*搜索框和按钮的容器*/
+	margin:0 auto;
+	}
+.search_box{/*搜索框*/
+	width:655px;
+	text-align:left;
+	font-size:15px;
+	height:20px;
+	font-family:"微软雅黑";
+	border:dashed 1px #99CC00;
+	
+	border-radius:8px;
+	}
+.search_button{/*搜索按钮*/
+	text-align:center;
+	border: solid 1px #FFF;
+	width:50px;
+	height:26px;
+	}
+#top_search_td{/*显示热搜词*/
+	z-index:1000;
+	display:none;
+	background:#FFF;
+	width:650px;
+	position:absolute;
+	border:dashed 1px #99CC00;
+	padding:5px;
+	text-align:center;
+	
+	word-break:keep-all;
+	white-space:nowrap;
+	overflow:hidden; 
+	text-overflow:ellipsis;
+	
+
+    box-shadow:3px 3px 5px #C1FA9C;
+	
+	}
+#top_search_td b{/*显示热搜词*/
+	border:solid 1px;
+	font-size:12px;
+	padding:3px;
+	line-height:20px;
+	}
+#top_search_td p{/*显示热搜词*/
+	text-align:left;
+	cursor:pointer;
+	margin:0;
+	font-size:14px;
+	}
+#top_search_td p:hover{/*显示热搜词鼠标移入效果*/
+	background:#CCC;
+	}
+.search_button,.search_box{
+	padding:2px;
+	}
+.result_box_frame{
+	margin:0 auto;
+	min-height:500px;
+	}
+.result_box{/*存放搜索结果的东西*/
+	text-align:center;
+	font-size:small;
+
+	}
+#result_box_container{/*存放搜索结果的容器的容器*/
+min-height:400px;
+	margin-top:25px;
+	}
+.directions
+{
+	margin:100px;
+	margin-top:30px;
+	
+	}
+.directions p{
+	text-align:left;
+	}
+.tips{
+	color:#F00;
+	}
+
+
+.lrc_show{/*装歌词的东西*/
+display:none;
+margin:25px;
+background:#787878;
+color:#FFF;
+padding:25px;
+	}
+.lrc_show p{
+	font-size:12px;
+	}
+.result_table{/*结果的table*/
+
+table-layout:fixed;/* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
+word-break:keep-all;/* 不换行 */
+white-space:nowrap;/* 不换行 */
+overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+width:95%;
+margin:0 auto;
+background:#4D4D4D;
+padding:10px;
+border-spacing:1px;
+	}
+	
+.result_table td{/*table 的td*/
+	font-size:small;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	}
+	
+	
+.result_table th{/*table 的th*/
+	font-size:small;
+	color:#CCC;
+	}
+.result_th{
+	
+	}
+.tr_color1{/*结果的颜色*/
+	background:#C5C5C5;
+	}
+.tr_color0{
+	background:#F1C18D;
+	}
+.final_url{
+	display:none;
+	}
+.recommend_box{
+	width:40px;
+	}
+.recommend{
+	cursor:pointer;
+	height:20px;
+	}
+.result_title{
+	}
+.result_album{
+	
+	}
+.result_artist{
+	width:150px;
+	}
+td.result_myurl{
+	cursor:pointer;
+}
+.result_myurl{
+	width:70px;
+	}
+.result_format{
+	width:40px;
+	}
+.result_size{
+	width:50px;
+	}
+.result_mconn{
+	width:50px;
+	}
+.result_try_box
+{
+	width:40px;
+}
+.result_lrc_box
+{
+	width:40px;
+}
+.result_lrc{
+	cursor:pointer;
+	}
+.result_try{
+	cursor:pointer;
+	}
+	
+.final_url{
+word-break:break-all;
+white-space:normal;
+	}
+	
+.page_span{/*  页数 */
+text-align:center;
+position:absolute;
+width:1000px;
+
+font-family:"微软雅黑";
+
+display:block;
+vertical-align:50%;
+margin:0 auto;
+margin-top:20px;
+	}
+
+
+
+.result_footer{
+	height:70px;
+	width:100%;
+	margin-top:15px;
+	margin-bottom:15px;
+	background:#999;
+	
+    box-shadow:0 0 20px #000;
+	}
+.pages{
+	cursor:pointer;
+	}	
+
+.result_box_left,.result_box_right{
+	width:420px;
+	height:70px;
+	z-index:100;
+	padding:0;
+	position:absolute;
+	
+	}
+.result_box_left{
+	margin-left:0;
+	}
+.result_box_right{
+	margin-left:580px;
+	}
+.result_box_left img,.result_box_right img{
+	background:#000;
+	width:70px;
+	height:70px;
+	border:0;
+	margin:0;
+	}
+.result_box_left .pages{
+	float:left;
+	}
+.result_box_right .pages{
+	float:right;
+	}
+.pages_pre_hide,.pages_nex_hide{
+	display:none;
+}

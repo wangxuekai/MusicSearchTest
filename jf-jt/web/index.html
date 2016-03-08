@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/original.css" />
+    <link rel="stylesheet" type="text/css" href="css/index_css3.css" />
+    <link rel="stylesheet" type="text/css" href="css/taobao.css" />
+
+    <script type="text/javascript" src="jquery/jquery.js"></script>
+    <script type="text/javascript" src="jquery/myjquery.js"></script>
+    <script type="text/javascript" src="js/json2.js"></script>
+
+
+    <title>Gtrajtr音乐外链搜索</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="header">
+        <div class="head_img_box"  title="问题反馈" onclick="{window.open('http://weibo.com/u/2329317175')}">
+            <img  id="logo" src="img/logo.png" />
+        </div>
+        <div class="head_info_box">
+            <table class="head_info">
+                <tr>
+                    <td class="head_info_box_text"  valign="top"><p> </p></td>
+                    <td class="head_info_box_text">
+
+                        <p>也许心碎是爱情最美的样子</p>
+                    </td>
+                    <td class="head_info_box_text" valign="bottom"><p> </p></td>
+                </tr>
+            </table>
+            <div class="lrc_box_frame">
+                <div class="lrc_box"> </div>
+            </div>
+        </div>
+
+        <!-- end .header --></div>
+    <div class="content">
+        <table align="center" cellspacing="0" cellpadding="0" width="750" id="music_table">
+            <tr height="25px">
+                <td class="recommend_show_butt"  title="推荐列表" rowspan="2"></td>
+                <td class="music_info_td"><audio id="myaudio" preload="preload"><span style="position:absolute; margin-left:-330px; ">亲~你的浏览器<b class="tips">不支持</b>HTML5的音频元素，不能在本站试听音乐，但可以拿到链接~</span></audio>
+                    <span class="music_info"></span>
+                    <!--[if !IE]><!-->
+          <span id="rand_play_box">
+          <input type="checkbox" id="rand_checkbox"/>
+          <label for="rand_checkbox">随便听听</label>
+          <img  src="img/refresh.png" id="next_music" title="切歌"/></span>
+                    <!--<![endif]--></td>
+                <td align="center" rowspan="2" ><button id="play" class="black_butt" onClick="playAudio('0')" disabled>播放</button></td>
+            <tr>
+                <td ><div id="canvas">
+                    <div id="canvas_buff"></div>
+                    <div id="canvas_playing"></div>
+                </div></td>
+            </tr>
+            </tr>
+
+            <tr>
+                <td  colspan="3"  class="hotlist_box" ></td>
+            </tr>
+        </table>
+        <div >
+            <table class="search_table">
+                <tr>
+                    <td><input type="text"  maxlength="500" class="search_box" id="search_box" title="可以根据歌名、专辑、歌手、歌词进行搜索"autocomplete="off"/></td>
+                    <td><input type="submit"  class="search_button  black_butt" id="search_button" value="搜索"/></td>
+                </tr>
+
+                <tr>
+                    <td id="top_search_td"></td>
+                </tr>
+            </table>
+        </div>
+        <div  id="result_box_container">
+            <div class="result_box_frame">
+                <div class="result_box" id="result_box">
+                    <h3>使用说明</h3>
+                    <div class="directions">
+                        <p><b>本站说明</b></p>
+                        <p>　　该站点旨在为大家的QQ空间提供免费的背景音乐的链接。</p>
+                        <p>　　该站点的歌曲搜索引擎为腾讯(<a href="http://music.soso.com" target="_blank">soso.com</a>)的搜索引擎，可以通过<b class="tips">歌名</b>，<b class="tips">专辑名</b>，<b class="tips">歌手</b>和<b class="tips">歌词</b>进行搜索。</p>
+                        <p>　　该站点的歌词搜索引擎为歌词迷(<a href="http://geci.me/" target="_blank">geci.me</a>)和百度(<a href="http://baidu.com/" target="_blank">baidu.com</a>)的搜索引擎，冷门歌词不一定能搜到。</p>
+                        <p><b class="tips">　　翻页按钮</b>在搜索结果下方的两侧。</p>
+                        <p><b>如何获取链接</b></p>
+                        <p><b class="tips">　　单击</b>搜索结果的链接就会出现可供QQ空间使用的音乐链接。</p>
+                        <p><b>如何试听</b></p>
+                        <p>　　由于HTML5技术的原因，<b class="tips">不支持HTML5</b>的浏览器无法在线试听。</p>
+                        <p>　　单击歌曲试听栏的图标即可在线试听。</p>
+                        <p><b>其他</b></p>
+                        <p>　　喜欢的歌曲没有歌词可以去我的微博留言，我有空给补上。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="result_footer" >
+                <div class="result_box_left">
+                    <img src="MyApp/MusicSearch/left.png" class="pages pages_pre_show"  num="-999999999" title="首页"/>
+                    <img src="MyApp/MusicSearch/left.png" class="pages pages_pre_hide"  num="-10" title="上十页"/>
+                    <img src="MyApp/MusicSearch/left.png" class="pages pages_pre_hide"  num="-5" title="上五页"/>
+                    <img src="MyApp/MusicSearch/left.png" class="pages pages_pre_hide"  num="-3" title="上三页"/>
+                    <img src="MyApp/MusicSearch/left.png" class="pages pages_pre_hide"  num="-2" title="上两页"/>
+                    <img src="MyApp/MusicSearch/left.png" class="pages pages_pre_hide"  num="-1" title="上一页"/>
+                </div>
+                <span class="page_span"></span>
+                <div class="result_box_right" >
+                    <img src="MyApp/MusicSearch/right.png" class="pages pages_nex_show"  num="999999999" title="尾页"/>
+                    <img src="MyApp/MusicSearch/right.png" class="pages pages_nex_hide"  num="10" title="下十页"/>
+                    <img src="MyApp/MusicSearch/right.png" class="pages pages_nex_hide"  num="5" title="下五页"/>
+                    <img src="MyApp/MusicSearch/right.png" class="pages pages_nex_hide"  num="3" title="下三页"/>
+                    <img src="MyApp/MusicSearch/right.png" class="pages pages_nex_hide"  num="2" title="下两页"/>
+                    <img src="MyApp/MusicSearch/right.png" class="pages pages_nex_hide"  num="1" title="下一页"/>
+                </div>
+            </div>
+            <pre class="lrc_show" title="双击收起" id="lrc_show"></pre>
+        </div>
+        <!-- end .content --></div>
+    <div class="footer">
+        <p align="right">访问总量:<span id="total_num"></span>　　今日:<span id="today_num"></span>　　</p>
+        <p align="center">
+            <a href="http://user.qzone.qq.com/329626722" target="_blank">站长空间</a>
+            <a href="MyApp/MusicSearch/help.html" target="_blank">使用帮助</a>
+            <a href="http://weibo.com/u/2329317175" target="_blank">问题反馈</a>
+        </p>
+        <!-- end .footer --></div>
+    <div class="taobao_container">
+    </div>
+    <!-- end .container --></div>
+<script defer="defer" type="text/javascript" src="js/index_butt.js"></script>
+<script defer="defer" type="text/javascript" src="js/music_player.js"></script>
+<script defer="defer" type="text/javascript" src="js/lrcResolver.js"></script>
+<script defer="defer" type="text/javascript" src="js/css3.js"></script>
+<script defer="defer" type="text/javascript" src="js/taobao.js"></script>
+<script defer="defer">
+    //全局变量
+    page=1;//搜索页数
+    total_res=0;//总结果数
+    total_page=1;//总结果的页数
+    recommend_list=0;//推荐列表里目前播放的曲目
+
+
+    $post("MyApp/MusicSearch/get_someinfo.php",{'get_someinfo':1},function(result){
+        var results=JSON.parse(result);
+        $("#total_num").html(results.total_num);//获得访问数量
+        $("#today_num").html(results.today_num);
+        $("#top_search_td").html(results.top_search);//获得热搜词
+        get_recommend();//获得推荐歌曲
+        top_search_lock();//绑定热搜词的效果
+    },10);
+
+    $(".head_info").fadeIn(1000);
+
+
+    //newWin=window.open("http://soso.music.qq.com/fcgi-bin/fcg_song.fcg",'新开googleWin',"fullscreen=0,height=1,width=1");
+    //newWin.opener=null;//出掉关闭时候的提示窗口   
+    //newWin.close();
+</script>
+
+</body>
+</html>
